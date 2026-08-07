@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ianocent.github.io/singgih/sitemap.xml
+Sitemap: https://ianocent.github.io/singgih/images-sitemap.xml
