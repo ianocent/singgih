@@ -17,6 +17,6 @@ Website: [https://ianocent.github.io/singgih/](https://ianocent.github.io/singgi
 [Chat WhatsApp Sekarang](https://wa.me/6281233570268?text=Halo%20Kak%20Singgih%2C%20saya%20mau%20info%20promo%20Suzuki%20BSD%20Tangerang%20Selatan)
 
 ---
-**Keyword:** dealer suzuki bsd, suzuki tangerang selatan, sales suzuki serpong, promo suzuki bsd 2026, kredit suzuki dp ringan tangerang selatan, ertiga hybrid serpong, xl7 bsd, jimny tangerang selatan
+**Keyword:** dealer suzuki bsd, suzuki tangerang selatan, sales suzuki serpong, promo suzuki bsd 2026, kredit suzuki dp ringan tangerang selatan, ertiga hybrid serpong, xl7 bsd, jimny tangerang selatan, suzuki ertiga hybrid berapa, suzuki jimny 5 pintu harga, dealer suzuki terdekat, test drive suzuki gratis
 
 © 2026 Sales Singgih Priambodo — Suzuki BSD &amp; Gading Serpong
