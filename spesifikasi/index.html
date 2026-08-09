@@ -35,28 +35,38 @@
     <link rel="stylesheet" href="/assets/css/style.css">
 
     <style>
+        html { scroll-behavior:smooth; }
         .sg-chip { display:inline-flex; gap:.5rem; align-items:center; background:var(--sg-mist); border:1px solid var(--sg-line); border-radius:999px; padding:.5rem 1.1rem; font-size:.85rem; font-weight:700; color:var(--sg-ink); text-decoration:none; transition:.25s; }
         .sg-chip:hover { border-color:var(--sg-leaf); color:var(--sg-leaf); }
-        .sg-spec { display:grid; grid-template-columns:repeat(2, minmax(0, 600px)); gap:1.5rem; align-items:start; }
-        .sg-spec-card { background:#fff; border:1px solid var(--sg-line); border-radius:20px; padding:1.6rem 1.5rem; transition:.28s; }
-        .sg-spec-card:hover { border-color:var(--sg-leaf); box-shadow:0 12px 30px rgba(15,23,42,.08); }
-        .sg-spec-l { display:flex; gap:1rem; align-items:flex-start; margin-bottom:1rem; }
-        .sg-spec-l img { width:96px; height:64px; object-fit:cover; border-radius:12px; }
-        .sg-spec-l h3 { font-size:1.15rem; color:var(--sg-ink); font-weight:800; }
-        .sg-spec-l small { display:block; color:#5b6b7b; font-size:.84rem; margin-top:.2rem; }
-        .sg-spec-tbl { width:100%; border-collapse:collapse; font-size:.9rem; }
-        .sg-spec-tbl th { text-align:left; color:#5b6b7b; font-weight:600; padding:.5rem .4rem .5rem 0; white-space:nowrap; vertical-align:top; }
-        .sg-spec-tbl td { padding:.5rem 0; color:var(--sg-ink); }
-        .sg-spec-tbl tr { border-bottom:1px dashed var(--sg-line); }
-        .sg-spec-tbl tr:last-child td, .sg-spec-tbl tr:last-child th { border-bottom:none; }
-        .sg-spec-tbl td:last-child { font-weight:600; }
-        .sg-bonus { margin:1.2rem 0 0; }
-        .sg-bonus-title { font-size:.86rem; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:var(--sg-leaf); margin-bottom:.6rem; }
-        .sg-bonus ul { list-style:none; display:flex; flex-direction:column; gap:.45rem; font-size:.9rem; color:var(--sg-ink); }
-        .sg-bonus ul li::before { content:"✓ "; color:var(--sg-sun); font-weight:900; }
-        .sg-bonus-note { margin-top:.7rem; font-size:.78rem; color:#5b6b7b; }
-        .sg-spec h4 { font-size:1rem; color:var(--sg-pine); margin-top:1rem; }
-        @media (max-width: 900px) { .sg-spec { grid-template-columns:1fr; } }
+
+        .sg-band { display:grid; grid-template-columns:300px 1fr; background:#fff; border:1px solid var(--sg-line); border-left:5px solid var(--sg-leaf); border-radius:18px; overflow:hidden; box-shadow:0 10px 28px rgba(13,59,46,.07); margin-bottom:1.9rem; }
+        .sg-band-img { position:relative; min-height:250px; background:var(--sg-sand); }
+        .sg-band-img img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+        .sg-band-num { position:absolute; top:14px; left:14px; background:var(--sg-pine); color:var(--sg-sun); font-weight:800; width:46px; height:46px; display:grid; place-items:center; border-radius:12px; font-size:1.15rem; box-shadow:0 8px 18px rgba(13,59,46,.35); }
+        .sg-band-main { padding:1.4rem 1.6rem 1.6rem; display:grid; grid-template-columns:1.55fr 1fr; gap:1.4rem 1.8rem; align-items:start; }
+        .sg-band-head { grid-column:1 / -1; display:flex; align-items:baseline; gap:.8rem; border-bottom:2px solid var(--sg-mist); padding-bottom:.6rem; margin-bottom:.2rem; }
+        .sg-band-head h3 { font-size:1.3rem; font-weight:800; color:var(--sg-ink); }
+        .sg-band-head small { color:var(--sg-mute); font-size:.85rem; }
+
+        .sg-tbl { width:100%; border-collapse:collapse; font-size:.9rem; }
+        .sg-tbl th { text-align:left; color:var(--sg-mute); font-weight:600; padding:.42rem .4rem .42rem 0; white-space:nowrap; vertical-align:top; }
+        .sg-tbl td { padding:.42rem 0; color:var(--sg-ink); }
+        .sg-tbl tr { border-bottom:1px dashed var(--sg-line); }
+        .sg-tbl tr:last-child td, .sg-tbl tr:last-child th { border-bottom:none; }
+        .sg-tbl td:last-child { font-weight:600; }
+
+        .sg-paket { background:var(--sg-sand); border:1px solid var(--sg-line); border-radius:14px; padding:1rem 1.1rem; }
+        .sg-paket-title { font-size:.8rem; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:var(--sg-pine); margin-bottom:.55rem; display:flex; gap:.45rem; align-items:center; }
+        .sg-paket-title i { color:var(--sg-sun); font-size:1.05rem; }
+        .sg-paket ul { list-style:none; display:flex; flex-direction:column; gap:.42rem; font-size:.87rem; color:var(--sg-ink); }
+        .sg-paket ul li::before { content:"★ "; color:var(--sg-sun); font-weight:800; }
+        .sg-paket-note { margin-top:.6rem; font-size:.76rem; color:var(--sg-mute); }
+
+        @media (max-width: 880px) {
+            .sg-band { grid-template-columns:1fr; }
+            .sg-band-img { min-height:210px; }
+            .sg-band-main { grid-template-columns:1fr; }
+        }
     </style>
 </head>
 <body>
@@ -71,8 +81,8 @@
     <nav class="sg-nav">
         <div class="sg-wrap">
             <a href="/" class="sg-brand"><img src="/assets/img/logosuzuki.png" alt="Logo Suzuki resmi" /> Singgih Suzuki</a>
-            <button class="sg-burger" aria-label="Menu" onclick="document.getElementById('kwMenu').classList.toggle('sg-open')">&#9776;</button>
-            <ul class="sg-menu" id="kwMenu">
+            <button class="sg-burger" aria-label="Menu" onclick="document.getElementById('sgMenu').classList.toggle('sg-open')">&#9776;</button>
+            <ul class="sg-menu" id="sgMenu">
                 <li><a href="/">Beranda</a></li>
                 <li><a href="/promo/">Promo</a></li>
                 <li><a href="/harga/">Harga OTR</a></li>
@@ -106,18 +116,20 @@
         </div>
     </section>
 
-    <section class="sg-sec" id="sg-spresso" style="padding-top:1rem;">
+    <section class="sg-sec" style="padding-top:1rem;">
         <div class="sg-wrap">
-            <div class="sg-spec sg-reveal" id="card">
-                <div class="sg-spec-card">
-                    <div class="sg-spec-l">
-                        <img src="/assets/img/singgih-s-presso-bsd.jpg" alt="Spesifikasi Suzuki S-Presso Tangerang Selatan" />
-                        <div>
-                            <h3>S-Presso</h3>
-                            <small>City car kompak &mdash; first car favorit</small>
-                        </div>
+
+            <article class="sg-band sg-reveal" id="sg-spresso">
+                <div class="sg-band-img">
+                    <span class="sg-band-num">01</span>
+                    <img src="/assets/img/singgih-s-presso-bsd.jpg" alt="Spesifikasi Suzuki S-Presso Tangerang Selatan" />
+                </div>
+                <div class="sg-band-main">
+                    <div class="sg-band-head">
+                        <h3>S-Presso</h3>
+                        <small>City car kompak &mdash; first car favorit</small>
                     </div>
-                    <table class="sg-spec-tbl">
+                    <table class="sg-tbl">
                         <tr><th>Mesin</th><td>K10B 3 sil. DOHC VVT, 998 cc</td></tr>
                         <tr><th>Daya</th><td>67 PS @ 5.500 rpm</td></tr>
                         <tr><th>Torsi</th><td>90 Nm @ 3.500 rpm</td></tr>
@@ -129,26 +141,30 @@
                         <tr><th>Ban</th><td>165/70 R14</td></tr>
                         <tr><th>Konsumsi BBM</th><td>&plusmn; 21 km/liter</td></tr>
                     </table>
-                    <div class="sg-bonus">
-                        <div class="sg-bonus-title">Bonus pembelian via Singgih</div>
+                    <div class="sg-paket">
+                        <div class="sg-paket-title"><i class="bx bxs-gift"></i> Paket bonus via Singgih</div>
                         <ul>
                             <li>Free service &amp; oli s.d 50.000 km</li>
                             <li>Kaca film + karpet bludru</li>
                             <li>Radio tape, segitiga pengaman, APAR</li>
                             <li>Voucher MAP s.d 15 jt sesuai program</li>
                         </ul>
-                        <p class="sg-bonus-note">*Bonus program dealer, bisa berubah &mdash; konfirmasi akhir via WA.</p>
+                        <p class="sg-paket-note">*Program dealer bisa berubah &mdash; konfirmasi via WA.</p>
                     </div>
                 </div>
-                <div class="sg-spec-card">
-                    <div class="sg-spec-l">
-                        <img src="/assets/img/singgih-carry-pickup-bsd.jpg" alt="Spesifikasi New Carry Pick Up Tangerang Selatan" />
-                        <div>
-                            <h3>New Carry Pick Up</h3>
-                            <small>Pikap niaga 1 ton &mdash; kredit ramah UMKM</small>
-                        </div>
+            </article>
+
+            <article class="sg-band sg-reveal" id="sg-carry">
+                <div class="sg-band-img">
+                    <span class="sg-band-num">02</span>
+                    <img src="/assets/img/singgih-carry-pickup-bsd.jpg" alt="Spesifikasi New Carry Pick Up Tangerang Selatan" />
+                </div>
+                <div class="sg-band-main">
+                    <div class="sg-band-head">
+                        <h3>New Carry Pick Up</h3>
+                        <small>Pikap niaga 1 ton &mdash; kredit ramah UMKM</small>
                     </div>
-                    <table class="sg-spec-tbl">
+                    <table class="sg-tbl">
                         <tr><th>Mesin</th><td>K15B-C 4 silinder, 1.462 cc</td></tr>
                         <tr><th>Daya</th><td>97 PS @ 5.600 rpm</td></tr>
                         <tr><th>Torsi</th><td>135 Nm @ 4.400 rpm</td></tr>
@@ -160,33 +176,30 @@
                         <tr><th>Muatan</th><td>&plusmn; 1 ton</td></tr>
                         <tr><th>Ban</th><td>165/80 R13</td></tr>
                     </table>
-                    <div class="sg-bonus">
-                        <div class="sg-bonus-title">Bonus pembelian via Singgih</div>
+                    <div class="sg-paket">
+                        <div class="sg-paket-title"><i class="bx bxs-gift"></i> Paket unit via Singgih</div>
                         <ul>
                             <li>Free service &amp; ganti oli s.d 50.000 km</li>
-                            <li>Karpet karet + kunci roda</li>
+                            <li>Karpet karet + kunci pelindung roda</li>
                             <li>Anti karat bak, APAR, segitiga pengaman</li>
-                            <li>Aksesori penunjang usaha sesuai paket promo</li>
+                            <li>Aksesori penunjang usaha sesuai promo</li>
                         </ul>
-                        <p class="sg-bonus-note">*Bonus program berubah &mdash; konfirmasi ke Singgih sebelum deal.</p>
+                        <p class="sg-paket-note">*Bonus program berubah &mdash; konfirmasi ke Singgih sebelum deal.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </article>
 
-    <section class="sg-sec" id="sg-fronx" style="padding-top:1rem;">
-        <div class="sg-wrap">
-            <div class="sg-spec sg-reveal">
-                <div class="sg-spec-card">
-                    <div class="sg-spec-l">
-                        <img src="/assets/img/singgih-fronx-bsd.jpg" alt="Spesifikasi Suzuki Fronx Turbo Tangerang Selatan" />
-                        <div>
-                            <h3>Fronx</h3>
-                            <small>SUV compact turbo hybrid</small>
-                        </div>
+            <article class="sg-band sg-reveal" id="sg-fronx">
+                <div class="sg-band-img">
+                    <span class="sg-band-num">03</span>
+                    <img src="/assets/img/singgih-fronx-bsd.jpg" alt="Spesifikasi Suzuki Fronx Turbo Tangerang Selatan" />
+                </div>
+                <div class="sg-band-main">
+                    <div class="sg-band-head">
+                        <h3>Fronx</h3>
+                        <small>SUV compact turbo hybrid</small>
                     </div>
-                    <table class="sg-spec-tbl">
+                    <table class="sg-tbl">
                         <tr><th>Mesin</th><td>K10C Boosterjet 3 silinder, 998 cc</td></tr>
                         <tr><th>Daya</th><td>100 PS @ 5.500 rpm</td></tr>
                         <tr><th>Torsi</th><td>147,6 Nm @ 2.000&ndash;4.500 rpm</td></tr>
@@ -198,26 +211,30 @@
                         <tr><th>Ban</th><td>195/60 R16</td></tr>
                         <tr><th>Konsumsi BBM</th><td>&plusmn; 20 km/liter (klaim pabrik)</td></tr>
                     </table>
-                    <div class="sg-bonus">
-                        <div class="sg-bonus-title">Bonus tanpa basi</div>
+                    <div class="sg-paket">
+                        <div class="sg-paket-title"><i class="bx bxs-gift"></i> Paket unit via Singgih</div>
                         <ul>
                             <li>Free service &amp; oli s.d 50.000 km</li>
                             <li>Voucher MAP s.d 20 jt sesuai program</li>
                             <li>Kaca film, radio tape, karpet bludru</li>
-                            <li>APAR, segitiga pengaman, anti karat</li>
+                            <li>APAR, segitiga pengaman, anti korosi</li>
                         </ul>
-                        <p class="sg-bonus-note">*Konfirmasi paket terbaru ke Singgih sebelum booking.</p>
+                        <p class="sg-paket-note">*Konfirmasi paket terbaru ke Singgih sebelum booking.</p>
                     </div>
                 </div>
-                <div class="sg-spec-card">
-                    <div class="sg-spec-l">
-                        <img src="/assets/img/singgih-ertiga-bsd.jpg" alt="Spesifikasi Suzuki Ertiga Hybrid Tangerang Selatan" />
-                        <div>
-                            <h3>Ertiga Hybrid</h3>
-                            <small>MPV 7 seater irit hybrid SHVS</small>
-                        </div>
+            </article>
+
+            <article class="sg-band sg-reveal" id="sg-ertiga">
+                <div class="sg-band-img">
+                    <span class="sg-band-num">04</span>
+                    <img src="/assets/img/singgih-ertiga-bsd.jpg" alt="Spesifikasi Suzuki Ertiga Hybrid Tangerang Selatan" />
+                </div>
+                <div class="sg-band-main">
+                    <div class="sg-band-head">
+                        <h3>Ertiga Hybrid</h3>
+                        <small>MPV 7 seater irit hybrid SHVS</small>
                     </div>
-                    <table class="sg-spec-tbl">
+                    <table class="sg-tbl">
                         <tr><th>Mesin</th><td>K15B + SHVS mild hybrid, 1.462 cc</td></tr>
                         <tr><th>Daya</th><td>&plusmn; 105 PS @ 6.000 rpm</td></tr>
                         <tr><th>Torsi</th><td>138 Nm @ 4.400 rpm</td></tr>
@@ -229,33 +246,30 @@
                         <tr><th>Ban</th><td>185/65 R15</td></tr>
                         <tr><th>Bagasi</th><td>153 &rarr; 803 liter (lipat kursi)</td></tr>
                     </table>
-                    <div class="sg-bonus">
-                        <div class="sg-bonus-title">Bonus pembelian via Singgih</div>
+                    <div class="sg-paket">
+                        <div class="sg-paket-title"><i class="bx bxs-gift"></i> Paket unit via Singgih</div>
                         <ul>
                             <li>Free service &amp; oli mesin s.d 50.000 km</li>
-                            <li>Karpet bludru, kaca film, radio tape</li>
-                            <li>Segitiga pengaman, Kunci pelindung roda</li>
+                            <li>Karpet bludru, kaca film, radio</li>
+                            <li>Segitiga pengaman + kunci pengaman roda</li>
                             <li>Voucher MAP s.d 20 jt (program berjalan)</li>
                         </ul>
-                        <p class="sg-bonus-note">*Program bonus fleksibel &mdash; tanya harga paket terbaru ke Singgih.</p>
+                        <p class="sg-paket-note">*Program bonus fleksibel &mdash; tanya harga paket terbaru ke Singgih.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </article>
 
-    <section class="sg-sec" id="sg-xl7" style="padding-top:1rem;">
-        <div class="sg-wrap">
-            <div class="sg-spec sg-reveal">
-                <div class="sg-spec-card">
-                    <div class="sg-spec-l">
-                        <img src="/assets/img/singgih-xl7-bsd.jpg" alt="Spesifikasi Suzuki XL7 Tangerang Selatan" />
-                        <div>
-                            <h3>XL7</h3>
-                            <small>SUV 7 seater, fitur premium LSE</small>
-                        </div>
+            <article class="sg-band sg-reveal" id="sg-xl7">
+                <div class="sg-band-img">
+                    <span class="sg-band-num">05</span>
+                    <img src="/assets/img/singgih-xl7-bsd.jpg" alt="Spesifikasi Suzuki XL7 Tangerang Selatan" />
+                </div>
+                <div class="sg-band-main">
+                    <div class="sg-band-head">
+                        <h3>XL7</h3>
+                        <small>SUV 7 seater, fitur premium LSE</small>
                     </div>
-                    <table class="sg-spec-tbl">
+                    <table class="sg-tbl">
                         <tr><th>Mesin</th><td>K15B (+SHVS var. hybrid), 1.462 cc</td></tr>
                         <tr><th>Daya</th><td>104,7 PS @ 6.000 rpm</td></tr>
                         <tr><th>Torsi</th><td>138 Nm @ 4.400 rpm</td></tr>
@@ -267,26 +281,30 @@
                         <tr><th>Ban</th><td>195/60 R16</td></tr>
                         <tr><th>Fitur</th><td>LED DRL, head unit 8", smart key</td></tr>
                     </table>
-                    <div class="sg-bonus">
-                        <div class="sg-bonus-title">Bonus (pembelian lewat Singgih)</div>
+                    <div class="sg-paket">
+                        <div class="sg-paket-title"><i class="bx bxs-gift"></i> Paket unit via Singgih</div>
                         <ul>
                             <li>Free service &amp; oli s.d 50.000 km</li>
                             <li>Karpet karet &amp; bludru, kaca film</li>
                             <li>Segitiga pengaman, APAR, kunci roda</li>
-                            <li>Voucher MAP s.d 20 jt (sesuai periode)</li>
+                            <li>Voucher MAP s.d 20 jt (periode)</li>
                         </ul>
-                        <p class="sg-bonus-note">*Cek paket bonus XL7 terbaru via WA, harga transparan.</p>
+                        <p class="sg-paket-note">*Cek paket bonus XL7 terbaru via WA, harga transparan.</p>
                     </div>
                 </div>
-                <div class="sg-spec-card">
-                    <div class="sg-spec-l">
-                        <img src="/assets/img/singgih-grand-vitara-bsd.jpg" alt="Spesifikasi Suzuki Grand Vitara Tangerang Selatan" />
-                        <div>
-                            <h3>Grand Vitara</h3>
-                            <small>SUV premium mild hybrid</small>
-                        </div>
+            </article>
+
+            <article class="sg-band sg-reveal" id="sg-gv">
+                <div class="sg-band-img">
+                    <span class="sg-band-num">06</span>
+                    <img src="/assets/img/singgih-grand-vitara-bsd.jpg" alt="Spesifikasi Suzuki Grand Vitara Tangerang Selatan" />
+                </div>
+                <div class="sg-band-main">
+                    <div class="sg-band-head">
+                        <h3>Grand Vitara</h3>
+                        <small>SUV premium mild hybrid</small>
                     </div>
-                    <table class="sg-spec-tbl">
+                    <table class="sg-tbl">
                         <tr><th>Mesin</th><td>K15C DualJet + SHVS, 1.462 cc</td></tr>
                         <tr><th>Daya</th><td>103 PS @ 6.000 rpm</td></tr>
                         <tr><th>Torsi</th><td>137 Nm @ 4.400 rpm</td></tr>
@@ -298,33 +316,30 @@
                         <tr><th>Ban</th><td>215/60 R17</td></tr>
                         <tr><th>Fitur</th><td>6 airbags, 360 kamera, HUD</td></tr>
                     </table>
-                    <div class="sg-bonus">
-                        <div class="sg-bonus-title">Paket bonus Grand Vitara</div>
+                    <div class="sg-paket">
+                        <div class="sg-paket-title"><i class="bx bxs-gift"></i> Paket unit via Singgih</div>
                         <ul>
                             <li>Free service &amp; oli s.d 50.000 km</li>
-                            <li>Voucher MAP menarik (periode promo)</li>
+                            <li>Voucher MAP menarik (program)</li>
                             <li>Kaca film, anti karat, APAR</li>
                             <li>Segitiga pengaman + kunci roda</li>
                         </ul>
-                        <p class="sg-bonus-note">*Bonus harus dikonfirmasi saat nego &mdash; chat Singgih dulu.</p>
+                        <p class="sg-paket-note">*Bonus harus dikonfirmasi saat nego</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </article>
 
-    <section class="sg-sec" id="sg-apv" style="padding-top:1rem;">
-        <div class="sg-wrap">
-            <div class="sg-spec sg-reveal">
-                <div class="sg-spec-card">
-                    <div class="sg-spec-l">
-                        <img src="/assets/img/singgih-apv-bsd.webp" alt="Spesifikasi Suzuki APV Tangerang Selatan" />
-                        <div>
-                            <h3>APV (New)</h3>
-                            <small>MPV multi-fungsi keluarga besar</small>
-                        </div>
+            <article class="sg-band sg-reveal" id="sg-apv">
+                <div class="sg-band-img">
+                    <span class="sg-band-num">07</span>
+                    <img src="/assets/img/singgih-apv-bsd.webp" alt="Spesifikasi Suzuki APV Tangerang Selatan" />
+                </div>
+                <div class="sg-band-main">
+                    <div class="sg-band-head">
+                        <h3>APV (New)</h3>
+                        <small>MPV multi-fungsi keluarga besar</small>
                     </div>
-                    <table class="sg-spec-tbl">
+                    <table class="sg-tbl">
                         <tr><th>Mesin</th><td>G15A 4 silinder MPI, 1.493 cc</td></tr>
                         <tr><th>Daya</th><td>&plusmn; 93 PS @ 6.000 rpm</td></tr>
                         <tr><th>Torsi</th><td>126 Nm @ 3.000 rpm</td></tr>
@@ -336,26 +351,30 @@
                         <tr><th>Ban</th><td>185/80 R14 (std)</td></tr>
                         <tr><th>Konsumsi BBM</th><td>&plusmn; 10,5 km/liter</td></tr>
                     </table>
-                    <div class="sg-bonus">
-                        <div class="sg-bonus-title">Bonus pembelian lewat Singgih</div>
+                    <div class="sg-paket">
+                        <div class="sg-paket-title"><i class="bx bxs-gift"></i> Paket unit via Singgih</div>
                         <ul>
                             <li>Free service s.d 50.000 km</li>
                             <li>Karpet karet &amp; bludru, radio tape</li>
-                            <li>Segitiga pengaman + APAR + anti karat</li>
+                            <li>Segitiga + APAR + anti korosi</li>
                             <li>Paket family starter sesuai promo</li>
                         </ul>
-                        <p class="sg-bonus-note">*Sesuaikan dengan program bulan berjalan &mdash; minta rincian ke Singgih.</p>
+                        <p class="sg-paket-note">*Sesuai program bulan berjalan &mdash; minta rincian ke Singgih.</p>
                     </div>
                 </div>
-                <div class="sg-spec-card">
-                    <div class="sg-spec-l">
-                        <img src="/assets/img/singgih-jimny-bsd.png" alt="Spesifikasi Suzuki Jimny Tangerang Selatan" />
-                        <div>
-                            <h3>Jimny</h3>
-                            <small>Off-road compact, permintaan tinggi</small>
-                        </div>
+            </article>
+
+            <article class="sg-band sg-reveal" id="sg-jimny">
+                <div class="sg-band-img">
+                    <span class="sg-band-num">08</span>
+                    <img src="/assets/img/singgih-jimny-bsd.png" alt="Spesifikasi Suzuki Jimny Tangerang Selatan" />
+                </div>
+                <div class="sg-band-main">
+                    <div class="sg-band-head">
+                        <h3>Jimny</h3>
+                        <small>Off-road compact, permintaan tinggi</small>
                     </div>
-                    <table class="sg-spec-tbl">
+                    <table class="sg-tbl">
                         <tr><th>Mesin</th><td>K15B 4 silinder VVT, 1.462 cc</td></tr>
                         <tr><th>Daya</th><td>&plusmn; 104,7 PS @ 6.000 rpm</td></tr>
                         <tr><th>Torsi</th><td>&plusmn; 130 Nm @ 4.000 rpm</td></tr>
@@ -367,18 +386,19 @@
                         <tr><th>Kapasitas</th><td>4 orang, tangki 40 L</td></tr>
                         <tr><th>Sasis</th><td>Ladder frame</td></tr>
                     </table>
-                    <div class="sg-bonus">
-                        <div class="sg-bonus-title">Bonus (waitlist prioritas)</div>
+                    <div class="sg-paket">
+                        <div class="sg-paket-title"><i class="bx bxs-gift"></i> Paket unit via Singgih</div>
                         <ul>
                             <li>Free service s.d 50.000 km</li>
                             <li>Anti karat, karpet karet, kaca film</li>
                             <li>APAR + segitiga pengaman + kunci roda</li>
-                            <li>Prioritas alokasi unit untuk pembeli via Singgih</li>
+                            <li>Prioritas alokasi unit via Singgih</li>
                         </ul>
-                        <p class="sg-bonus-note">*Alokasi Jimny terbatas &mdash; chat duluan untuk waiting list.</p>
+                        <p class="sg-paket-note">*Alokasi Jimny terbatas &mdash; chat duluan untuk waiting list.</p>
                     </div>
                 </div>
-            </div>
+            </article>
+
         </div>
     </section>
 
