@@ -1,6 +1,6 @@
 # Sales Suzuki BSD &amp; Serpong - Singgih Priambodo
 
-**Sales Resmi Suzuki area BSD &amp; Serpong** — bantu warga BSD, Serpong, Tangerang Selatan, Pamulang, Bintaro dapat unit Suzuki impian dengan skema kredit paling pas.
+**Sales Resmi Suzuki area BSD &amp; Serpong** — bantu warga BSD, Serpong, Bintaro, Jakarta Selatan &amp; Bogor dapat unit Suzuki impian dengan skema kredit paling pas.
 
 Sales: **Singgih Priambodo**
 WhatsApp/Telepon: **0812-3357-0268** (24 jam)
@@ -10,7 +10,7 @@ Website: [https://showroommobilsuzukigadingserpong.com/](https://showroommobilsu
 ## Dapatkan dari Singgih
 - Info promo Suzuki BSD &amp; Serpong terbaru (Ertiga Hybrid, XL7, Grand Vitara, Jimny, Fronx, S-Presso, Carry Pick Up, APV)
 - Estimasi DP ringan & cicilan semua leasing
-- Test drive gratis area BSD &amp; Serpong
+- Test drive gratis area BSD &amp; Serpong, Jakarta Selatan &amp; Bogor
 - Proses kredit cepat 1-3 hari
 
 ## WhatsApp
