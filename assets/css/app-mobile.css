@@ -1,0 +1,89 @@
+/* ============================================================
+   MODE APLIKASI MOBILE - Singgih Suzuki BSD & Serpong
+   Semua aturan DIKUNCI di dalam media query.
+   Di desktop file ini tidak berefek apa pun.
+   ============================================================ */
+
+.sg-appbar { display: none; }
+
+@media (max-width: 900px) {
+
+    /* --- dasar rasa aplikasi --- */
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+        padding-bottom: calc(66px + env(safe-area-inset-bottom, 0px));
+        overscroll-behavior-y: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+    a, button, select, input, .sg-burger {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* cegah iOS zoom saat fokus form */
+    input, select, textarea { font-size: 16px !important; }
+
+    /* CTA hero full-width ala app */
+    .sg-actions { width: 100%; }
+    .sg-actions .sg-btn {
+        display: flex !important;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    /* float WA lama disembunyikan - tab WA di appbar menggantikan */
+    .sg-wa-float { display: none; }
+
+    /* --- bottom app bar ala native --- */
+    .sg-appbar {
+        display: flex;
+        position: fixed;
+        left: 0; right: 0; bottom: 0;
+        z-index: 90;
+        height: calc(66px + env(safe-area-inset-bottom, 0px));
+        padding: 0 6px env(safe-area-inset-bottom, 0px);
+        background: rgba(255,255,255,.94);
+        backdrop-filter: saturate(180%) blur(16px);
+        -webkit-backdrop-filter: saturate(180%) blur(16px);
+        border-top: 1px solid var(--sg-line);
+        box-shadow: 0 -8px 24px rgba(8,37,29,.12);
+        align-items: stretch;
+    }
+    .sg-appbar a {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        text-decoration: none;
+        color: #93a49a;
+        font-size: .62rem;
+        font-weight: 700;
+        position: relative;
+        min-height: 44px;
+    }
+    .sg-appbar a i.bx { font-size: 1.35rem; line-height: 1; transition: transform .15s ease; }
+    .sg-appbar a:active i.bx { transform: scale(.88); }
+    .sg-appbar a.sg-on { color: var(--sg-leaf); }
+    .sg-appbar a.sg-on::before {
+        content: "";
+        position: absolute;
+        top: 0; width: 34px; height: 3px;
+        border-radius: 0 0 4px 4px;
+        background: var(--sg-sun);
+    }
+
+    /* slot WA tengah menonjol */
+    .sg-appbar a.sg-wa span { color: #128c7e; }
+    .sg-appbar a.sg-wa i.bx {
+        width: 48px; height: 48px;
+        margin-top: -28px;
+        background: linear-gradient(135deg,#25d366,#128c7e);
+        border-radius: 50%;
+        display: grid; place-items: center;
+        font-size: 1.55rem; color: #fff;
+        box-shadow: 0 8px 18px rgba(37,211,102,.45), 0 0 0 5px rgba(255,255,255,.94);
+    }
+}
