@@ -168,3 +168,23 @@ a { text-decoration:none; color:inherit; }
 @media (max-width:520px) {
     .sg-topbar .sg-wrap { justify-content:center; }
 }
+
+.sg-urgency { margin-top:.9rem; background:var(--sg-mist); border:1px dashed var(--sg-leaf); border-radius:12px; padding:.65rem 1rem; font-size:.88rem; color:var(--sg-ink); display:inline-block; }
+.sg-urgency b { color:#b45309; font-weight:800; }
+
+.sg-reviews { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.2rem; }
+.sg-review { margin:0; background:var(--sg-sand); border:1px solid var(--sg-line); border-radius:16px; padding:1.3rem 1.25rem; display:flex; flex-direction:column; gap:.7rem; transition:.25s; }
+.sg-review:hover { transform:translateY(-4px); box-shadow:0 16px 34px rgba(13,59,46,.1); }
+.sg-rate { color:#d97706; letter-spacing:.15em; font-size:.95rem; }
+.sg-review blockquote { margin:0; color:#3c4f44; font-size:.92rem; line-height:1.75; font-style:italic; }
+.sg-review figcaption b { display:block; color:var(--sg-ink); font-size:.94rem; }
+.sg-review figcaption small { color:var(--sg-mute); font-size:.8rem; }
+
+.sg-quiz { background:var(--sg-sand); border:1px solid var(--sg-line); border-radius:18px; padding:1.6rem 1.5rem; max-width:600px; margin:0 auto; }
+.sg-quiz label { display:block; font-size:.84rem; font-weight:700; color:var(--sg-mute); margin:.9rem 0 .35rem; }
+.sg-quiz select { width:100%; padding:.7rem .9rem; border:1px solid var(--sg-line); border-radius:10px; font:inherit; background:#fff; }
+.sg-quiz .sg-btn { margin-top:1.3rem; width:100%; justify-content:center; border:0; cursor:pointer; }
+.sg-quiz-out { display:none; margin-top:1.2rem; background:#fff; border-left:4px solid var(--sg-sun); border-radius:12px; padding:1rem 1.1rem; font-size:.92rem; line-height:1.8; color:var(--sg-ink); }
+
+.sg-chips { display:flex; flex-wrap:wrap; gap:.7rem; justify-content:center; }
+.sg-chips span { background:var(--sg-mist); border:1.5px solid var(--sg-leaf); color:var(--sg-pine); font-weight:700; font-size:.86rem; padding:.5rem 1.15rem; border-radius:999px; }

@@ -108,6 +108,7 @@
                 <span class="sg-eyebrow">Line-up Tersedia</span>
                 <h2>Semua Model Suzuki, Siap Disimulasikan Cicilannya</h2>
                 <p>Stok warna lengkap di cabang BSD &amp; Serpong. Tinggal pilih model, Singgih hitungin skema DP-nya.</p>
+                <p class="sg-urgency">📌 Angka promo &amp; bunga 0% diperbarui tiap awal bulan — periode berjalan tinggal <b id="sgSisaHari">…</b> hari.</p>
             </div>
             <div class="sg-models sg-reveal">
                 <div class="sg-model-card">
@@ -219,6 +220,44 @@
         </div>
     </section>
 
+    <section class="sg-sec" id="quiz" style="background:#fff;">
+        <div class="sg-wrap">
+            <div class="sg-sec-head sg-reveal">
+                <span class="sg-eyebrow">Simulasi 3 Langkah</span>
+                <h2>Sebelum Konsultasi, Coba Tebak Dulu Angkanya</h2>
+                <p>Pilih model, kondisi DP, dan tenor — perkiraan angsuran keluar seketika dan otomatis masuk ke chat Singgih.</p>
+            </div>
+            <div class="sg-quiz sg-reveal">
+                <label for="sgqModel">Model</label>
+                <select id="sgqModel">
+                    <option value="130000000|Carry Pick Up">Carry Pick Up (± Rp 130 jt)</option>
+                    <option value="150000000|S-Presso">S-Presso (± Rp 150 jt)</option>
+                    <option value="160000000|APV">APV (± Rp 160 jt)</option>
+                    <option value="230000000|Ertiga Hybrid">Ertiga Hybrid (± Rp 230 jt)</option>
+                    <option value="240000000|Fronx">Fronx (± Rp 240 jt)</option>
+                    <option value="250000000|XL7">XL7 (± Rp 250 jt)</option>
+                    <option value="350000000|Grand Vitara">Grand Vitara (± Rp 350 jt)</option>
+                    <option value="400000000|Jimny">Jimny (± Rp 400 jt)</option>
+                </select>
+                <label for="sgqDp">Kesiapan DP</label>
+                <select id="sgqDp">
+                    <option value="0.1">Baru siap yang minimum (±10%)</option>
+                    <option value="0.2" selected>Cukup lumayan (±20%)</option>
+                    <option value="0.3">Aman banget (±30%)</option>
+                </select>
+                <label for="sgqTenor">Tenor</label>
+                <select id="sgqTenor">
+                    <option>24 bulan</option>
+                    <option selected>48 bulan</option>
+                    <option>60 bulan</option>
+                    <option>72 bulan</option>
+                </select>
+                <button type="button" class="sg-btn sg-btn-wa" onclick="kuisSinggih()">Hitung Perkiraannya</button>
+                <div class="sg-quiz-out" id="sgqOut"></div>
+            </div>
+        </div>
+    </section>
+
     <section class="sg-sec" id="bukti">
         <div class="sg-wrap">
             <div class="sg-sec-head sg-reveal">
@@ -249,6 +288,51 @@
                 <div class="sg-card"><i>📊</i><b>Kalau buat usaha kecil, DP mulai berapa?</b><p>Carry mulai 5 juta, APV dari 15 juta, Fronx 20 juta — dibantu itung sampai skemanya pas.</p></div>
                 <div class="sg-card"><i>🔁</i><b>Pengajuan ditolak satu leasing, gimana?</b><p>Bukan akhir jalan. Singgih langsung alihkan ke leasing lain yang skemanya lebih cocok.</p></div>
                 <div class="sg-card"><i>🏠</i><b>Bisa cek unit &amp; test drive di rumah?</b><p>Bisa, khusus area Serpong, BSD, dan Pamulang — unit diantar dulu, cek fisik, baru deal.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sg-sec" id="testimoni">
+        <div class="sg-wrap">
+            <div class="sg-sec-head sg-reveal">
+                <span class="sg-eyebrow">Ulasan Pelanggan</span>
+                <h2>Hasil Simulasi Mereka yang Udah Jadi Kunci Mobil</h2>
+                <p>Dokumentasi asli pelanggan Singgih di area BSD, Serpong &amp; sekitarnya.</p>
+            </div>
+            <div class="sg-reviews sg-reveal">
+                <figure class="sg-review">
+                    <span class="sg-rate">★★★★★</span>
+                    <blockquote>"Grand Vitara saya dibandingin skema kredit dari 4 leasing sekaligus, dikasih tabelnya. Pilihan jadi jelas, bukan cuma dibilang 'yang ini murah'."</blockquote>
+                    <figcaption><b>Pak Bram</b><small>Grand Vitara &middot; BSD City</small></figcaption>
+                </figure>
+                <figure class="sg-review">
+                    <span class="sg-rate">★★★★★</span>
+                    <blockquote>"XL7 buat keluarga. Yang bikin percaya: semua hitungan ditulis ulang di chat, jadi bisa dibaca lagi pelan-pelan sebelum putuskan."</blockquote>
+                    <figcaption><b>Bu Nia</b><small>XL7 &middot; Serpong</small></figcaption>
+                </figure>
+                <figure class="sg-review">
+                    <span class="sg-rate">★★★★★</span>
+                    <blockquote>"Jimny 5 pintu masuk waitlist, tapi tetap dikabari progresnya tiap minggu. Ga perlu nge-chat dulu buat nanya kabar."</blockquote>
+                    <figcaption><b>Feri</b><small>Jimny &middot; Bintaro</small></figcaption>
+                </figure>
+                <figure class="sg-review">
+                    <span class="sg-rate">★★★★★</span>
+                    <blockquote>"Pengajuan Carry pertama ditolak satu leasing, langsung dialihkan ke leasing lain dan approve. Usaha jalan lagi tanpa nunggu lama."</blockquote>
+                    <figcaption><b>Pak Gunawan</b><small>Carry Pick Up &middot; Pamulang</small></figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section class="sg-sec" id="area" style="background:#fff;">
+        <div class="sg-wrap">
+            <div class="sg-sec-head sg-reveal">
+                <span class="sg-eyebrow">Cakupan Wilayah</span>
+                <h2>Unit Diantar &amp; Test Drive Sampai Titik-Titik Ini</h2>
+                <p>Lokasi di luar daftar tetap bisa didiskusikan — mulai saja dari chat.</p>
+            </div>
+            <div class="sg-chips sg-reveal">
+                <span>BSD City</span><span>Serpong</span><span>Kelapa Dua</span><span>Bintaro</span><span>Pamulang</span><span>Jakarta Selatan</span><span>Bogor</span><span>Depok</span>
             </div>
         </div>
     </section>
@@ -353,6 +437,33 @@
             }
         ]
     }
+    </script>
+
+    <script>
+        function kuisSinggih() {
+            var pecah = document.getElementById('sgqModel').value.split('|');
+            var otr = parseInt(pecah[0], 10);
+            var model = pecah[1];
+            var dp = Math.round(otr * parseFloat(document.getElementById('sgqDp').value));
+            var tenor = parseInt(document.getElementById('sgqTenor').value, 10);
+            var pokok = otr - dp;
+            var perkiraan = Math.round(pokok / tenor + pokok * 0.05 / 12);
+            function rp(n) { return 'Rp ' + n.toLocaleString('id-ID'); }
+            document.getElementById('sgqOut').innerHTML =
+                '<b>' + model + '</b>: DP <b>' + rp(dp) + '</b> dengan angsuran <b>' + rp(perkiraan) + '</b>/bulan selama ' + tenor + ' bulan.<br><small>Belum final — Singgih bandingkan antar leasing dulu sebelum angka ini dikunci.</small>';
+            var teks = 'Halo kak Singgih, aku coba simulasi 3 langkah di website.\nModel: ' + model + '\nDP: ' + rp(dp) + '\nTenor: ' + tenor + ' bulan\nPerkiraan keluar ' + rp(perkiraan) + '/bulan. Boleh dibandingkan skemanya antar leasing?';
+            window.open('https://wa.me/6281233570268?text=' + encodeURIComponent(teks), '_blank');
+        }
+    </script>
+
+    <script>
+        (function sisaPeriodePromo() {
+            var el = document.getElementById('sgSisaHari');
+            if (!el) return;
+            var hariIni = new Date();
+            var tutupPeriode = new Date(hariIni.getFullYear(), hariIni.getMonth() + 1, 0, 23, 59, 59);
+            el.textContent = Math.max(1, Math.ceil((tutupPeriode - hariIni) / 86400000));
+        })();
     </script>
 
     <script src="/assets/js/main.js"></script>
