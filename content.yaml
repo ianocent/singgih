@@ -1,0 +1,68 @@
+# content.yaml — sumber data katalog Singgih Priambodo
+# Edit angka promo/harga DI SINI saja, lalu jalankan: python shared/build.py singgih
+sales: Singgih
+email: singgihpriambodo95@gmail.com
+domain: showroommobilsuzukigadingserpong.com
+wa: "6281233570268"
+area: BSD & Serpong
+repo: git@github.com:ianocent/singgih.git
+
+tema:
+  prefix_css: sg
+  img_prefix: singgih
+  img_area_slug: bsd
+  alt_area: BSD &amp; Serpong
+
+kalkulator:
+  bunga_flat_default_pct: 5
+  tenor_bulan: [12, 24, 36, 48, 60, 72]
+
+models:
+  - nama: S-Presso
+    slug: s-presso
+    otr: 150000000
+    dp_mulai: 8000000
+    tenor_teks: "1-6 tahun"
+    catatan: Entry level terbaik di kelasnya
+  - nama: Carry Pick Up
+    slug: carry-pickup
+    otr: 130000000
+    dp_mulai: 5000000
+    tenor_teks: "1-6 tahun"
+    catatan: Investasi awal bisnis
+  - nama: Fronx
+    slug: fronx
+    otr: 240000000
+    dp_mulai: 20000000
+    tenor_teks: "1-6 tahun"
+    catatan: Bold crossover hatchback
+  - nama: Ertiga Hybrid
+    slug: ertiga
+    otr: 230000000
+    dp_mulai: 25000000
+    tenor_teks: "1-6 tahun"
+    catatan: Smart hybrid SHVS
+  - nama: XL7
+    slug: xl7
+    otr: 250000000
+    dp_mulai: 30000000
+    tenor_teks: "1-6 tahun"
+    catatan: Executive family mover
+  - nama: Grand Vitara
+    slug: grand-vitara
+    otr: 350000000
+    dp_mulai: 10000000
+    tenor_teks: "1-6 tahun"
+    catatan: AllGrip hybrid flagship
+  - nama: APV
+    slug: apv
+    otr: 160000000
+    dp_mulai: 5000000
+    tenor_teks: "1-6 tahun"
+    catatan: Fleksibel komersial-premium
+  - nama: Jimny
+    slug: jimny
+    otr: 400000000
+    dp_mulai: null
+    tenor_teks: Konsultasi
+    catatan: Inden sesuai antrean
