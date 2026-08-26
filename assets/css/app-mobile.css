@@ -1,6 +1,6 @@
 /* ============================================================
    MODE APLIKASI MOBILE - Singgih Suzuki BSD & Serpong
-   Karakter mobile: RAIL AKSI VERTIKAL (tanpa bottom bar)
+   Karakter mobile: MENU KARTU MELAYANG VERTIKAL (tanpa bottom bar)
    Semua aturan DIKUNCI di dalam media query.
    Di desktop file ini tidak berefek apa pun.
    ============================================================ */
@@ -36,60 +36,68 @@
     /* float WA lama disembunyikan - bulatan hijau di rail menggantikan */
     .sg-wa-float { display: none; }
 
-    /* --- rail aksi vertikal di tepi kanan --- */
+    /* --- menu kartu melayang vertikal (berlabel) di kanan bawah --- */
     .sg-appbar {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        align-items: stretch;
+        gap: 4px;
         position: fixed;
         left: auto;
         right: 12px;
-        bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+        bottom: calc(16px + env(safe-area-inset-bottom, 0px));
         z-index: 90;
         width: auto;
         height: auto;
-        padding: 0;
-        background: transparent;
-        border: none;
-        box-shadow: none;
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
+        padding: 8px;
+        background: rgba(8, 37, 29, .95);
+        backdrop-filter: blur(12px) saturate(150%);
+        -webkit-backdrop-filter: blur(12px) saturate(150%);
+        border: 1px solid rgba(242, 183, 5, .22);
+        border-radius: 18px;
+        box-shadow: 0 16px 40px rgba(8, 37, 29, .45);
     }
     .sg-appbar a {
         flex: 0 0 auto;
-        display: grid;
-        place-items: center;
-        width: 46px;
-        height: 46px;
-        border-radius: 50%;
-        background: var(--sg-pine-deep);
-        color: #d8f0e3;
-        font-size: 0; /* label teks disembunyikan, icon only */
-        gap: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        min-width: 128px;
+        padding: 9px 14px;
+        border-radius: 12px;
+        background: transparent;
+        color: #cfe6d8;
+        font-size: .76rem;
+        font-weight: 700;
+        letter-spacing: .02em;
+        line-height: 1.4;
         text-decoration: none;
-        border: 1px solid rgba(242, 183, 5, .3);
-        box-shadow: 0 8px 20px rgba(8, 37, 29, .35);
-        transition: transform .15s ease, background .2s ease;
+        border: none;
+        transition: background .2s ease, color .2s ease;
     }
-    .sg-appbar a i.bx { font-size: 1.35rem; line-height: 1; pointer-events: none; }
-    .sg-appbar a:active { transform: scale(.9); }
+    .sg-appbar a i.bx {
+        font-size: 1.25rem;
+        line-height: 1;
+        color: var(--sg-sun);
+        pointer-events: none;
+    }
+    .sg-appbar a:active { background: rgba(255, 255, 255, .1); }
 
-    /* aktif = kuning matahari */
+    /* aktif = kuning matahari penuh */
     .sg-appbar a.sg-on {
         background: var(--sg-sun);
         color: var(--sg-pine-deep);
-        border-color: transparent;
     }
+    .sg-appbar a.sg-on i.bx { color: var(--sg-pine-deep); }
 
-    /* slot WA: bulatan hijau lebih besar di rail */
+    /* slot WA: hijau WhatsApp */
     .sg-appbar a.sg-wa {
-        width: 54px;
-        height: 54px;
         background: linear-gradient(135deg, #25d366, #128c7e);
         color: #fff;
-        border-color: transparent;
-        box-shadow: 0 10px 26px rgba(37, 211, 102, .5);
     }
-    .sg-appbar a.sg-wa i.bx { font-size: 1.6rem; }
+    .sg-appbar a.sg-wa i.bx {
+        font-size: 1.3rem;
+        color: #fff;
+    }
 }
