@@ -51,7 +51,7 @@ models:
   - nama: Grand Vitara
     slug: grand-vitara
     otr: 350000000
-    dp_mulai: 10000000
+    dp_mulai: 70000000
     tenor_teks: "1-6 tahun"
     catatan: AllGrip hybrid flagship
   - nama: APV

@@ -1,8 +1,12 @@
 /* ============================================================
-   MODE APLIKASI MOBILE - Singgih Suzuki BSD & Serpong
-   Karakter mobile: BOTTOM BAR "TOMBOL PIANO" (key aktif terangkat)
-   Semua aturan DIKUNCI di dalam media query.
-   Di desktop file ini tidak berefek apa pun.
+   SINGGIH SUZUKI — BSD & SERPONG
+   MODE APLIKASI MOBILE
+   Karakter: BOTTOM BAR "TOMBOL PIANO" — tombol aktif terangkat
+   4px ke atas seperti tuts piano yang sedang ditekan. Gestur
+   mobile ketiga: Kiki pakai pil melayang, Salsa bottom bar solid,
+   Singgih memakai tombol terangkat.
+   Semua aturan terkunci di dalam media query; di desktop file ini
+   tidak berefek apa pun.
    ============================================================ */
 
 .sg-appbar { display: none; }
@@ -16,39 +20,41 @@
         overscroll-behavior-y: none;
         -webkit-tap-highlight-color: transparent;
     }
+
     a, button, select, input, .sg-burger {
         touch-action: manipulation;
         -webkit-tap-highlight-color: transparent;
     }
 
-    /* cegah iOS zoom saat fokus form */
+    /* cegah iOS auto-zoom saat fokus form */
     input, select, textarea { font-size: 16px !important; }
 
-    /* CTA hero full-width ala app */
+    /* CTA hero jadi blok penuh */
     .sg-actions { width: 100%; }
     .sg-actions .sg-btn {
         display: flex !important;
         width: 100%;
-        justify-content: center;
         margin-bottom: 10px;
     }
 
-    /* float WA lama disembunyikan - bulatan hijau di rail menggantikan */
+    /* float WA lama digantikan slot WA di bottom bar */
     .sg-wa-float { display: none; }
 
-    /* --- bottom bar "tombol piano": key aktif terangkat ke atas --- */
+    /* --- bottom bar tombol piano --- */
     .sg-appbar {
         display: flex;
-        align-items: flex-end;
         position: fixed;
-        left: 0; right: 0; bottom: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         z-index: 90;
-        height: calc(64px + env(safe-area-inset-bottom, 0px));
-        padding: 8px 10px env(safe-area-inset-bottom, 0px);
-        background: var(--sg-sand);
-        border-top: 4px solid var(--sg-sun);
-        box-shadow: 0 -10px 28px rgba(20, 36, 28, .16);
+        background: color-mix(in srgb, var(--sg-paper) 96%, transparent);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-top: 1px solid var(--sg-line);
+        padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
     }
+
     .sg-appbar a {
         flex: 1;
         display: flex;
@@ -56,42 +62,49 @@
         align-items: center;
         justify-content: center;
         gap: 3px;
-        height: 100%;
-        border-radius: 14px 14px 0 0;
-        color: var(--sg-mute);
-        font-size: .62rem;
-        font-weight: 700;
-        letter-spacing: .02em;
+        min-height: 54px;
+        padding-block: .5rem;
         text-decoration: none;
-        transition: transform .2s ease, background .2s ease;
+        border-radius: var(--sg-r-sm);
+        color: var(--sg-mute);
+        font-size: .63rem;
+        font-weight: 600;
+        transition: transform .18s cubic-bezier(.2, .7, .3, 1),
+                    background .18s ease,
+                    color .18s ease;
     }
-    .sg-appbar a i.bx {
-        font-size: 1.35rem;
-        line-height: 1;
-        pointer-events: none;
-    }
-    .sg-appbar a:active { background: var(--sg-mist); }
+    .sg-appbar a i.bx { font-size: 1.3rem; line-height: 1; }
 
-    /* aktif = key pine gelap yang mengangkat diri dari bar */
+    /* tombol terangkat saat ditekan */
+    .sg-appbar a:active {
+        transform: translateY(-4px);
+        background: var(--sg-tint);
+        color: var(--sg-ink);
+    }
+
+    /* state aktif = tombol yang tertahan tertekan */
     .sg-appbar a.sg-on {
-        background: var(--sg-pine-deep);
-        color: var(--sg-sun);
-        height: calc(100% + 14px);
-        padding-bottom: 14px;
-        transform: translateY(-2px);
-        border-radius: 16px 16px 0 0;
-        box-shadow: 0 -8px 20px rgba(8, 37, 29, .35);
-    }
-    .sg-appbar a.sg-on span { color: var(--sg-sun); }
-
-    /* slot WA: key hijau yang juga sedikit timbul */
-    .sg-appbar a.sg-wa {
-        background: linear-gradient(135deg, #25d366, #128c7e);
+        transform: translateY(-4px);
+        background: var(--sg-ink);
         color: #fff;
-        height: calc(100% + 8px);
-        padding-bottom: 8px;
-        border-radius: 16px 16px 0 0;
-        box-shadow: 0 -5px 14px rgba(37, 211, 102, .45);
+    }
+
+    /* slot WA: amber, tidak ikut terangkat supaya beda affordance */
+    .sg-appbar a.sg-wa {
+        background: var(--sg-accent-deep);
+        color: #fff;
+        transform: none;
+    }
+    .sg-appbar a.sg-wa:active {
+        transform: translateY(-2px);
+        background: #8f4d03;
+        color: #fff;
     }
     .sg-appbar a.sg-wa span { color: #fff; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sg-appbar a { transition: none; }
+    .sg-appbar a:active,
+    .sg-appbar a.sg-on { transform: none; }
 }
